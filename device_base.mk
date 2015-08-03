@@ -257,7 +257,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # ART
 PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := \
-    --compiler-filter=interpret-only
+    --compiler-filter=balanced
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
