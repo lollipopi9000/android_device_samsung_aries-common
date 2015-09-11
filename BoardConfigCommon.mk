@@ -24,6 +24,9 @@ AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := false
 
 BOARD_USES_LIBSECRIL_STUB := true
 
+# Disable SELinux
+BOARD_KERNEL_CMDLINE := androidboot.selinux=enforcing. 
+
 TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
@@ -169,43 +172,6 @@ BOARD_CUSTOM_VSYNC_IOCTL := true
 
 # Screenrecord
 BOARD_SCREENRECORD_LANDSCAPE_ONLY := true
-
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/aries-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    bdaddr_read.te \
-    bluetooth.te \
-    debuggerd.te \
-    device.te \
-    file.te \
-    file_contexts \
-    geomagneticd.te \
-    gpsd.te \
-    init.te \
-    installd.te \
-    kernel.te \
-    lvm.te \
-    mediaserver.te \
-    netd.te \
-    orientationd.te \
-    platform_app.te \
-    property_contexts \
-    pvrsrvinit.te \
-    radio.te \
-    recovery.te \
-    rild.te \
-    sdcardd.te \
-    servicemanager.te \
-    shared_relro.te \
-    shell.te \
-    surfaceflinger.te \
-    system_app.te \
-    system_server.te \
-    ueventd.te \
-    untrusted_app.te \
-    zygote.te
 
 # Include aries specific stuff
 -include device/samsung/aries-common/Android.mk
