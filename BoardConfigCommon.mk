@@ -41,7 +41,7 @@ TARGET_ENABLE_NON_PIE_SUPPORT := true
 MALLOC_IMPL := dlmalloc
 
 # RIL
-BOARD_RIL_CLASS := ../../../hardware/samsung/exynos3/s5pc110/ril/
+# BOARD_RIL_CLASS := ../../../hardware/samsung/exynos3/s5pc110/ril/
 
 # Dalvik startup with low memory footprint
 TARGET_ARCH_LOWMEM := true
