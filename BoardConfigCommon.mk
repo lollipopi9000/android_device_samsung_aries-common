@@ -25,7 +25,7 @@ AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := false
 BOARD_USES_LIBSECRIL_STUB := true
 
 # Disable SELinux
-BOARD_KERNEL_CMDLINE := androidboot.selinux=enforcing. 
+BOARD_KERNEL_CMDLINE := androidboot.selinux=disabled 
 
 TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
