@@ -45,7 +45,7 @@ MALLOC_IMPL := dlmalloc
 TARGET_USES_BLOCK_BASED_OTA := false
 
 # RIL
-# BOARD_RIL_CLASS := ../../../hardware/samsung/exynos3/s5pc110/ril/
+BOARD_RIL_CLASS := ../../../hardware/samsung/exynos3/s5pc110/ril/
 
 # Dalvik startup with low memory footprint
 TARGET_ARCH_LOWMEM := true
