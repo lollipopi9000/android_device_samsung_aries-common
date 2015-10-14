@@ -21,6 +21,8 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <sys/select.h>
+#include <cstring>
+
 #include <cutils/log.h>
 
 #include "LightSensor.h"
