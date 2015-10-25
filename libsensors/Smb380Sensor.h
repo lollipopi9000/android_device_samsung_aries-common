@@ -21,6 +21,7 @@
 #include <errno.h>
 #include <sys/cdefs.h>
 #include <sys/types.h>
+#include <cstring.h>
 
 #include "sensors.h"
 #include "SensorBase.h"
