@@ -216,4 +216,7 @@
     -->
     <integer name="config_longPressOnHomeBehavior">1</integer>
 
+    <!-- enable doze powersaving mode -->
+    <bool name="config_enableAutoPowerModes">true</bool>
+
 </resources>
