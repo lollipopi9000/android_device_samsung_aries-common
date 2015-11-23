@@ -24,6 +24,7 @@ AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := false
 
 BOARD_USES_LIBSECRIL_STUB := true
 
+# Disable SELinux
 TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
@@ -33,9 +34,11 @@ TARGET_CPU_VARIANT := cortex-a8
 TARGET_CPU_SMP := false
 KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilts/gcc/$(strip $(HOST_OS))-x86/arm/arm-eabi-4.7/bin/"
 
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
+
 # Bionic stuff
 BOARD_USES_LEGACY_MMAP := true
-TARGET_NEEDS_BIONIC_MD5 := true
+# TARGET_NEEDS_BIONIC_MD5 := true
 TARGET_NEEDS_BIONIC_PRELINK_SUPPORT := true
 TARGET_ENABLE_NON_PIE_SUPPORT := true
 MALLOC_IMPL := dlmalloc
@@ -87,6 +90,8 @@ BOARD_KERNEL_PAGESIZE := 4096
 BOARD_BOOTIMAGE_PARTITION_SIZE := 7864320
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 629145600
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1379926016
+BOARD_CACHEIMAGE_PARTITION_SIZE :=  17920
+BOARD_IMAGE_PARTITION_SIZE := 1379926016
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # Connectivity - Wi-Fi
@@ -130,17 +135,6 @@ BOARD_CUSTOM_BOOTIMG_MK := device/samsung/aries-common/shbootimg.mk
 TARGET_RECOVERY_FSTAB := device/samsung/aries-common/fstab.aries
 RECOVERY_FSTAB_VERSION := 2
 
-# Open Source Charging Mode
-BOARD_USES_OWN_CHARGER := true
-BOARD_CHARGER_IMG_PATH := device/samsung/aries-common/charger/images
-BOARD_POWER_SUPPLY_PATH := /sys/class/power_supply
-BOARD_BATTERY_SYSFS_PATH := $(BOARD_POWER_SUPPLY_PATH)/battery
-BOARD_AC_SYSFS_PATH := $(BOARD_POWER_SUPPLY_PATH)/ac
-BOARD_USB_SYSFS_PATH := $(BOARD_POWER_SUPPLY_PATH)/usb
-BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_CHARGER_DIM_SCREEN_BRIGHTNESS := true
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/aries-common/recovery/graphics.c
-
 # Boot Animation
 TARGET_BOOTANIMATION_TEXTURE_CACHE := false
 TARGET_BOOTANIMATION_USE_RGB565 := true
@@ -169,43 +163,6 @@ BOARD_CUSTOM_VSYNC_IOCTL := true
 
 # Screenrecord
 BOARD_SCREENRECORD_LANDSCAPE_ONLY := true
-
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/aries-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    bdaddr_read.te \
-    bluetooth.te \
-    debuggerd.te \
-    device.te \
-    file.te \
-    file_contexts \
-    geomagneticd.te \
-    gpsd.te \
-    init.te \
-    installd.te \
-    kernel.te \
-    lvm.te \
-    mediaserver.te \
-    netd.te \
-    orientationd.te \
-    platform_app.te \
-    property_contexts \
-    pvrsrvinit.te \
-    radio.te \
-    recovery.te \
-    rild.te \
-    sdcardd.te \
-    servicemanager.te \
-    shared_relro.te \
-    shell.te \
-    surfaceflinger.te \
-    system_app.te \
-    system_server.te \
-    ueventd.te \
-    untrusted_app.te \
-    zygote.te
 
 # Include aries specific stuff
 -include device/samsung/aries-common/Android.mk
