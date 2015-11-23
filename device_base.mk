@@ -68,6 +68,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/aries-common/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc
 
+# RIL
+PRODUCT_PACKAGES += \
+	libsecril-client \
+	libsecril-compat
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     setup_fs \
