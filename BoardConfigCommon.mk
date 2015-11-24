@@ -34,11 +34,11 @@ TARGET_CPU_VARIANT := cortex-a8
 TARGET_CPU_SMP := false
 KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilts/gcc/$(strip $(HOST_OS))-x86/arm/arm-eabi-4.7/bin/"
 
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
+# BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
 # Bionic stuff
 BOARD_USES_LEGACY_MMAP := true
-# TARGET_NEEDS_BIONIC_MD5 := true
+TARGET_NEEDS_BIONIC_MD5 := true
 TARGET_NEEDS_BIONIC_PRELINK_SUPPORT := true
 TARGET_ENABLE_NON_PIE_SUPPORT := true
 MALLOC_IMPL := dlmalloc

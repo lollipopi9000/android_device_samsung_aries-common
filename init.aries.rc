@@ -11,22 +11,12 @@ on init
 
     loglevel 9
 
-    export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /storage/sdcard1
-
 #   FIXME: Market checks this variable for space-checking, but downloads to /datadata
     export DOWNLOAD_CACHE /data/download
 
-    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /storage/sdcard0 0700 root root
-    mkdir /storage/sdcard1 0700 root root
-
-#   for backwards compatibility
-    symlink /storage/sdcard0 /sdcard
-    symlink /storage/sdcard0 /mnt/sdcard
-    symlink /storage/sdcard1 /external_sd
-    symlink /storage/sdcard1 /mnt/external_sd
+    # for backwards compatibility
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard
 
     mkdir /datadata 0771 system system
 
@@ -70,13 +60,13 @@ on fs
 
 #   LVM: set up LVM volumes
     wait /sys/dev/block/179:0
-    exec_context u:r:lvm:s0 /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
-    exec_context u:r:lvm:s0 /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
+    exec /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
+    exec /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
     restorecon /dev/mapper/lvpool-system
     restorecon /dev/mapper/lvpool-userdata
 
     mount_all fstab.aries
-    swapon_all fstab.aries
+#    swapon_all fstab.aries
 
 #   Radio set up
     mkdir /radio 0775 radio radio
@@ -194,8 +184,8 @@ on charger
 
 #   LVM: set up LVM volumes
     wait /sys/dev/block/179:0
-    exec_context u:r:lvm:s0 /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
-    exec_context u:r:lvm:s0 /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
+    exec /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
+    exec /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
     restorecon /dev/mapper/lvpool-system
     restorecon /dev/mapper/lvpool-userdata
 
@@ -214,8 +204,8 @@ on post-fs-data
     start setup_datadata
 
 #   Wi-Fi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    mkdir /data/misc/wifi/sockets 0775 wifi wifi
+    mkdir /data/misc/dhcp 0775 dhcp dhcp
 
 #   Download cache
     mkdir /data/download 0770 system cache
@@ -244,16 +234,6 @@ service pvrsrvinit /system/bin/pvrsrvinit
     user root
     group root
     oneshot
-
-# FUSE sdcard daemon for rich permissions (runs as media_rw)
-service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
-    class late_start
-    disabled
-
-# FUSE sdcard daemon for rich permissions (runs as media_rw)
-service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -t 4 /mnt/media_rw/sdcard1 /storage/sdcard1
-    class late_start
-    disabled
 
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
