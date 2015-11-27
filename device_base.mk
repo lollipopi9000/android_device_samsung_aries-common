@@ -70,8 +70,7 @@ PRODUCT_COPY_FILES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-	libsecril-client \
-	libsecril-compat
+	libsamsung_symbols
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
