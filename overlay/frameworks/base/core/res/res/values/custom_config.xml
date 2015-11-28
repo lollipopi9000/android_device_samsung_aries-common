@@ -25,7 +25,7 @@
   </string-array> -->
 
     <!-- Set Home Button Wake Support as a persistent behaviour. -->
-<!--    <bool name="config_persistHomeWakeSupport">true</bool> -->
+    <bool name="config_persistHomeWakeSupport">true</bool>
 
     <!-- Global action menu -->
     <string-array translatable="false" name="config_globalActionsList">
