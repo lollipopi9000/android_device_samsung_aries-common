@@ -90,6 +90,13 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
 
+# We need to build the GPS interposition library for the GPS to work, also M removes
+# libstlport, but some of our binary-only prebuilts need it, so we'll add it back in
+# in source and here
+PRODUCT_PACKAGES += \
+    libdmitry \
+    libstlport
+
 # These are the OpenMAX IL modules
 PRODUCT_PACKAGES += \
     libSEC_OMX_Core \
