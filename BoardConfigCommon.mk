@@ -118,11 +118,11 @@ BOARD_USES_MULTIPLE_SDCARD_FS := true
 TARGET_USES_BLOCK_BASED_OTA := true
 
 # Enable dex-preoptimization to speed up first boot sequence
-ifeq ($(HOST_OS),linux)
-    WITH_DEXPREOPT := true
-    WITH_DEXPREOPT_BOOT_IMG_ONLY := true
-    DONT_DEXPREOPT_PREBUILTS := true
-endif
+# ifeq ($(HOST_OS),linux)
+#    WITH_DEXPREOPT := true
+#    WITH_DEXPREOPT_BOOT_IMG_ONLY := true
+#    DONT_DEXPREOPT_PREBUILTS := true
+# endif
 
 # ART
 WITH_ART_SMALL_MODE := true
