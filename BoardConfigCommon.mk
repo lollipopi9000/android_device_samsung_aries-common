@@ -125,7 +125,7 @@ TARGET_USES_BLOCK_BASED_OTA := true
 # endif
 
 # ART
-WITH_ART_SMALL_MODE := false
+WITH_ART_SMALL_MODE := true
 
 # Recovery
 TARGET_USERIMAGES_USE_EXT4 := true
