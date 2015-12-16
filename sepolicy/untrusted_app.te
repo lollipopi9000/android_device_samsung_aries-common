@@ -18,3 +18,5 @@ allow untrusted_app block_device:dir r_dir_perms;
 
 allow untrusted_app efs_file:file { getattr };
 allow untrusted_app efs_file:dir { getattr };
+allow untrusted_app app_data_file:dir open;
+allow untrusted_app sysfs_dspmanager:file write;

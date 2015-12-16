@@ -8,3 +8,4 @@ init_daemon_domain(pvrsrvinit)
 
 allow pvrsrvinit self:capability { sys_module };
 allow pvrsrvinit gpu_device:chr_file { read write open ioctl };
+allow pvrsrvinit kernel:system module_request;

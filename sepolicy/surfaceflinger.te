@@ -5,3 +5,4 @@ allow surfaceflinger sysfs:file rw_file_perms;
 allow surfaceflinger camera_device:dir search;
 allow surfaceflinger camera_device:chr_file { open read write ioctl };
 allow surfaceflinger camera_device:lnk_file read;
+allow surfaceflinger kernel:system module_request;

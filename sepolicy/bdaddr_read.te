@@ -11,3 +11,5 @@ allow bdaddr_read self:capability { chown fowner };
 allow bdaddr_read bluetooth_prop:property_service set;
 dontaudit bdaddr_read self:capability fsetid;
 unix_socket_connect(bdaddr_read, property, init)
+allow bdaddr_read kernel:system module_request;
+# allow bdaddr_read system_data_file:file { write open setattr };
