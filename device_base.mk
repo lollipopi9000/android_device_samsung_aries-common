@@ -250,10 +250,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     dalvik.vm.checkjni=false
 
-# Set default USB interface and default to internal SD as /sdcard
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
 # ART
 PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := \
     --compiler-filter=interpret-only
