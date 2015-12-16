@@ -36,6 +36,9 @@ KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilts/gcc/$(strip $(HOST_OS))-x86/
 
 BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
+BOARD_SEPOLICY_DIRS += \
+    device/samsung/aries-common/sepolicy
+
 # Bionic stuff
 BOARD_USES_LEGACY_MMAP := true
 TARGET_NEEDS_BIONIC_MD5 := true
