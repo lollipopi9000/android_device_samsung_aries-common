@@ -16,6 +16,8 @@ export LD_PRELOAD "/system/lib/libsamsung_symbols.so"
 #   FIXME: Market checks this variable for space-checking, but downloads to /datadata
     export DOWNLOAD_CACHE /data/download
 
+    setprop ro.vold.primary_physical 1
+
     # for backwards compatibility
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard
