@@ -68,9 +68,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/aries-common/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc
 
-# RIL
+# Legacy RIL
 PRODUCT_PACKAGES += \
-	libsamsung_symbols
+    libsamsung_symbols \
+    ril-wrapper
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
