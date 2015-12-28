@@ -32,7 +32,7 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a8
 TARGET_CPU_VARIANT := cortex-a8
 TARGET_CPU_SMP := false
-KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilts/gcc/$(strip $(HOST_OS))-x86/arm/arm-eabi-5.2/bin/"
+KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilts/gcc/$(strip $(HOST_OS))-x86/arm/arm-eabi-5.3/bin/"
 
 BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
@@ -162,6 +162,7 @@ BOARD_ALLOW_EGL_HIBERNATION := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 BOARD_EGL_NEEDS_HANDLE_VALUE=true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+HWUI_COMPILE_FOR_PERF := true
 
 # hwcomposer: custom vsync ioctl
 BOARD_CUSTOM_VSYNC_IOCTL := true
@@ -173,7 +174,7 @@ BOARD_SCREENRECORD_LANDSCAPE_ONLY := true
 -include device/samsung/aries-common/Android.mk
 
 # TWRP Flags
-TW_THEME := portrait_hdpi
+TW_THEME := portrait_mdpi
 TW_NO_REBOOT_BOOTLOADER := true
 TW_EXCLUDE_MTP := true
 TW_INTERNAL_STORAGE_PATH := "/sdcard"
