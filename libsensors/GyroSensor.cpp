@@ -154,7 +154,7 @@ again:
                 mPendingEvent.data[2] = value * CONVERT_GYRO_Z;
             }
         } else if (type == EV_SYN) {
-            mPendingEvent.timestamp = timevalToNano(event->time);
+            mPendingEvent.timestamp = getTimestamp();
             if (mEnabled) {
                 *data++ = mPendingEvent;
                 count--;
