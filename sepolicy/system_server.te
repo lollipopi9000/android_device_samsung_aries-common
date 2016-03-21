@@ -12,5 +12,5 @@ allow system_server datadata_file:file { create_file_perms relabelfrom relabelto
 allow system_server datadata_file:dir { create_dir_perms relabelfrom relabelto };
 allow system_server datadata_file:lnk_file create_file_perms;
 
-allow system_server sysfs_ksm:dir { create_dir_perms relabelfrom relabelto };
+# allow system_server sysfs_ksm:dir { create_dir_perms relabelfrom relabelto };
 allow system_server system_file:file execmod;

@@ -12,7 +12,7 @@
 allow init self:capability { sys_module };
 allow init self:process { execmem setcurrent };
 
-allow init lvm_placeholder:process { dyntransition };
+# allow init lvm_placeholder:process { dyntransition };
 
 # allow init kmem_device:chr_file create_file_perms;
 
