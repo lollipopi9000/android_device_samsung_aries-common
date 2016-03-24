@@ -46,6 +46,9 @@ TARGET_ENABLE_NON_PIE_SUPPORT := true
 # Use longer timeouts for slow CPU
 TARGET_NEEDS_LONG_TIMEOUTS := true
 
+# Don't include live wallpapers, they take too much cpu and ram plus space
+TARGET_EXCLUDE_LIVEWALLPAPERS := true
+
 # RIL
 BOARD_RIL_CLASS := ../../../hardware/samsung/exynos3/s5pc110/ril/
 
@@ -112,6 +115,8 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/s3c-usbgadget/gadget/lun%d/file"
 BOARD_USES_MULTIPLE_SDCARD_FS := true
 BLOCK_BASED_OTA=false
+
+TARGET_EXCLUDE_LIVEWALLPAPERS := true
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
