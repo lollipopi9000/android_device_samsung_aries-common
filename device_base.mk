@@ -72,6 +72,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libsamsung_symbols \
     ril-wrapper
+    
+# Radio and Telephony
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril.config=setPrefNwTypeOnUnsolConnected
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
