@@ -116,11 +116,15 @@ PRODUCT_PACKAGES += \
     sensors.aries \
     power.s5pc110 \
     hwcomposer.s5pc110 \
-    camera.aries \
     audio.primary.aries \
     audio.a2dp.default \
     audio.usb.default \
     libs3cjpeg
+
+# Camera
+PRODUCT_PACKAGES += \
+    Snap \
+    camera.aries
 
 # Charger
 PRODUCT_PACKAGES += \
