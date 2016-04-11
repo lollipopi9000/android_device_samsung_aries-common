@@ -72,11 +72,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libsamsung_symbols \
     ril-wrapper
-    
-# Radio and Telephony
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril.config=setPrefNwTypeOnUnsolConnected
 
+# RIL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=SamsungExynos3RIL \
+    mobiledata.interfaces=pdp0,gprs,ppp0,rmnet0,rmnet1 \
+    ro.telephony.call_ring.multiple=false \
+    ro.telephony.call_ring.delay=3000
+    
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     setup_fs \
@@ -204,15 +207,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.media.legacy-drm=1 \
     wifi.interface=wlan0 \
-    ro.telephony.ril_class=SamsungExynos3RIL \
-    ro.telephony.ril.config=icccardstatus,datacall,signalstrength,facilitylock \
-    mobiledata.interfaces=pdp0,eth0,gprs,ppp0,rmnet \
     ro.bq.gpu_to_cpu_unsupported=1 \
-    ro.ril.hsxpa=1 \
-    ro.ril.gprsclass=10 \
     ro.adb.qemud=1 \
-    ro.ril.enable.managed.roaming=1 \
-    ro.ril.emc.mode=2 \
     ro.phone_storage=1 \
     ro.additionalmounts=/storage/sdcard1 \
     ro.config.low_ram=true \
