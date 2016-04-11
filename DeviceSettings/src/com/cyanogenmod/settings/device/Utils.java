@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.omnirom.device;
+package com.cyanogenmod.settings.device;
 
 import java.io.File;
 import java.io.FileNotFoundException;

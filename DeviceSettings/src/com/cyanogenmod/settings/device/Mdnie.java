@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.omnirom.device;
+package com.cyanogenmod.settings.device;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -23,16 +23,16 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceManager;
 
-public class Bigmem implements OnPreferenceChangeListener {
+public class Mdnie implements OnPreferenceChangeListener {
 
-    private static final String FILE = "/sys/kernel/bigmem/enable";
+    private static final String FILE = "/sys/class/mdnieset_ui/switch_mdnieset_ui/mdnieset_ui_file_cmd";
 
     public static boolean isSupported() {
         return Utils.fileExists(FILE);
     }
 
     /**
-     * Restore bigmem setting from SharedPreferences. (Write to kernel.)
+     * Restore backlight timeout setting from SharedPreferences. (Write to kernel.)
      * @param context       The context to read the SharedPreferences from
      */
     public static void restore(Context context) {
@@ -41,7 +41,7 @@ public class Bigmem implements OnPreferenceChangeListener {
         }
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_BIGMEM, "0"));
+        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_MDNIE, "6"));
     }
 
     @Override

@@ -20,7 +20,7 @@
 	<PreferenceCategory
     	android:title="@string/category_screen_title">
 	    <!-- Color tuning -->
-	    <org.omnirom.device.ColorTuningPreference 
+	    <com.cyanogenmod.settings.device.ColorTuningPreference 
 	        android:key="color_tuning"
 	        android:title="@string/color_tuning_title_head"
 	        android:summary="@string/color_tuning_summary_head" />
@@ -75,7 +75,7 @@
             android:title="@string/category_volume_boost_title"
             android:key="category_volume_boost">
                 <!-- Volume Boost -->
-                <org.omnirom.device.VolumeBoostPreference
+                <com.cyanogenmod.settings.device.VolumeBoostPreference
                 android:key="volume_boost"
                 android:title="@string/volume_boost_title_head"
                 android:summary="@string/volume_boost_summary_head" />
@@ -102,7 +102,7 @@
         <PreferenceCategory
             android:title="@string/category_vibration_title">
             <!-- Vibration -->
-            <org.omnirom.device.VibrationPreference
+            <com.cyanogenmod.settings.device.VibrationPreference
                 android:key="vibration"
                 android:title="@string/vibration_title_head"
                 android:summary="@string/vibration_summary_head" />
