@@ -16,8 +16,10 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:sharedUserId="android.uid.system"
     package="com.cyanogenmod.settings.device"
-    android:sharedUserId="android.uid.system" >
+    android:versionCode="5"
+    android:versionName="2.3" >
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -26,8 +28,8 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
 
     <uses-sdk
-        android:minSdkVersion="18"
-        android:targetSdkVersion="21" />
+        android:minSdkVersion="21"
+        android:targetSdkVersion="23" />
 
     <application
         android:label="@string/app_name"
@@ -41,6 +43,14 @@
             android:exported="true"
             android:label="@string/app_name" >
 
+            <intent-filter>
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+            </intent-filter>
+            
+            <intent-filter>	
+                <action android:name="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS" />
+            </intent-filter>
+ 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
