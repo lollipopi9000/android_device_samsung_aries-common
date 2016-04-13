@@ -50,7 +50,7 @@ TARGET_NEEDS_LONG_TIMEOUTS := true
 TARGET_EXCLUDE_LIVEWALLPAPERS := true
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/samsung/aries-common/ril/
+BOARD_RIL_CLASS := ../../../hardware/samsung/exynos3/s5pc110/ril/
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
