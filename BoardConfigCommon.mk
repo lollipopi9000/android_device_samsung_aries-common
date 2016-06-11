@@ -145,6 +145,9 @@ TARGET_BOOTANIMATION_USE_RGB565 := true
 # BLN
 BOARD_HAS_BLN := true
 
+# Include an expanded selection of fonts
+EXTENDED_FONT_FOOTPRINT := true
+
 # Hardware rendering
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/aries-common/egl.cfg
