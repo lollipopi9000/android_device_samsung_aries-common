@@ -142,6 +142,9 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := false
 TARGET_BOOTANIMATION_USE_RGB565 := true
 
+# BLN
+BOARD_HAS_BLN := true
+
 # Hardware rendering
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/aries-common/egl.cfg
