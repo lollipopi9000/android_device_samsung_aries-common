@@ -7,8 +7,8 @@ allow untrusted_app sysfs_dspmanager:file { read open getattr write };
 allow untrusted_app rild_file:file r_file_perms;
 allow untrusted_app rild_file:dir { read open search getattr };
 
-allow untrusted_app datadata_file:file { create_file_perms relabelfrom relabelto execute execute_no_trans };
-allow untrusted_app datadata_file:dir { create_dir_perms relabelfrom relabelto create setattr};
+allow untrusted_app datadata_file:file { rename setattr read lock create getattr write ioctl unlink open };
+allow untrusted_app datadata_file:dir { search write getattr read remove_name open add_name };
 allow untrusted_app datadata_file:lnk_file create_file_perms;
 
 allow untrusted_app backup_data_file:dir { create_dir_perms };
