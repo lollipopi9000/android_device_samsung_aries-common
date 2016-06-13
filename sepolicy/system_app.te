@@ -21,4 +21,3 @@ allow system_app system_app_data_file:file { create_file_perms relabelfrom relab
 allow system_app system_app_data_file:dir { create_dir_perms relabelfrom relabelto };
 allow system_app system_app_data_file:lnk_file create_file_perms;
 allow system_app kernel:system module_request;
-# allow system_app sysfs:file write;

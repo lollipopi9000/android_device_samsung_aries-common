@@ -8,7 +8,7 @@ allow untrusted_app rild_file:file r_file_perms;
 allow untrusted_app rild_file:dir { read open search getattr };
 
 allow untrusted_app datadata_file:file { rename setattr read lock create getattr write ioctl unlink open };
-allow untrusted_app datadata_file:dir { search write getattr read remove_name open add_name };
+allow untrusted_app datadata_file:dir { search write getattr read remove_name open add_name append };
 allow untrusted_app datadata_file:lnk_file create_file_perms;
 
 allow untrusted_app backup_data_file:dir { create_dir_perms };
@@ -22,3 +22,23 @@ allow untrusted_app app_data_file:dir open;
 allow untrusted_app sysfs_dspmanager:file write;
 
 allow untrusted_app datadata_file:lnk_file { read getattr unlink create };
+
+allow untrusted_app healthd:dir { getattr search };
+allow untrusted_app healthd:file { read open };
+allow untrusted_app init:dir { getattr search };
+allow untrusted_app init:file { read open };
+allow untrusted_app kernel:dir { getattr search };
+allow untrusted_app kernel:file { read open };
+allow untrusted_app lmkd:dir { getattr search };
+allow untrusted_app lmkd:file { read open };
+allow untrusted_app logd:dir { getattr search };
+allow untrusted_app logd:file { read open };
+allow untrusted_app servicemanager:dir { getattr search };
+allow untrusted_app servicemanager:file { read open };
+allow untrusted_app storage_stub_file:dir getattr;
+allow untrusted_app surfaceflinger:dir { getattr search };
+allow untrusted_app sysfs_dspmanager:file write;
+allow untrusted_app ueventd:dir { getattr search };
+allow untrusted_app ueventd:file { read open };
+allow untrusted_app vold:dir { getattr search };
+allow untrusted_app vold:file { read open };
