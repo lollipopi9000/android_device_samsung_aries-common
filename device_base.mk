@@ -72,6 +72,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libsamsung_symbols \
     ril-wrapper
+    
+# Radio and Telephony
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril.config=setPrefNwTypeOnUnsolConnected
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -214,8 +218,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=true \
     ro.sys.fw.bg_apps_limit=16 \
     ro.config.max_starting_bg=10 \
-    ro.ksm.default=1 \
-    media.stagefright.use-awesome=true
+    ro.ksm.default=1
 
 # ART
 PRODUCT_PROPERTY_OVERRIDES += \

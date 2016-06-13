@@ -81,6 +81,20 @@ Only the three quirks included above are recognized at this point:
     <Include href="media_codecs_google_telephony.xml" />
 
     <Decoders>
+        <!--  ffmpeg audio codecs  -->
+        <MediaCodec name="OMX.ffmpeg.aac.decoder" type="audio/mp4a-latm"/>
+        <MediaCodec name="OMX.ffmpeg.mp3.decoder" type="audio/mpeg"/>
+        <MediaCodec name="OMX.ffmpeg.vorbis.decoder" type="audio/vorbis"/>
+        <MediaCodec name="OMX.ffmpeg.wma.decoder" type="audio/x-ms-wma"/>
+        <MediaCodec name="OMX.ffmpeg.ra.decoder" type="audio/vnd.rn-realaudio"/>
+        <MediaCodec name="OMX.ffmpeg.flac.decoder" type="audio/flac"/>
+        <MediaCodec name="OMX.ffmpeg.alac.decoder" type="audio/alac"/>
+        <MediaCodec name="OMX.ffmpeg.mp2.decoder" type="audio/mpeg-L2"/>
+        <MediaCodec name="OMX.ffmpeg.ac3.decoder" type="audio/ac3"/>
+        <MediaCodec name="OMX.ffmpeg.ape.decoder" type="audio/x-ape"/>
+        <MediaCodec name="OMX.ffmpeg.dts.decoder" type="audio/vnd.dts"/>
+        <MediaCodec name="OMX.ffmpeg.atrial.decoder" type="audio/ffmpeg"/>
+
         <MediaCodec name="OMX.SEC.MPEG4.Decoder" type="video/mp4v-es" >
             <Quirk name="output-buffers-are-unreadable" />
         </MediaCodec>

@@ -1,7 +1,7 @@
 allow toolbox app_data_file:dir { setattr relabelfrom write read getattr relabelto open add_name };
 allow toolbox app_data_file:lnk_file create;
 # allow toolbox block_device:blk_file { read write getattr open };
-allow toolbox datadata_file:dir { read ioctl open };
+allow toolbox datadata_file:dir { read ioctl open getattr };
 allow toolbox init:fifo_file { write getattr };
 allow toolbox kernel:system module_request;
 allow toolbox self:capability { fowner chown dac_override };
