@@ -101,6 +101,10 @@ on fs
 #   Change permission for uart_switch
     chown radio radio /sys/class/sec/uart_switch/UART_SEL/value
     chmod 660 /sys/class/sec/uart_switch/UART_SEL/value
+    
+#   MTP Device permission.
+    chmod 0660 /dev/mtp_usb
+    chown system mtp /dev/mtp_usb
 
 #   Permission for tuning knobs
     chown system system /sys/class/misc/notification/bl_timeout
