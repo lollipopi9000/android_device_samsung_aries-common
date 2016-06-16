@@ -45,6 +45,9 @@
 /system/bin/bdaddr_read                                                 u:object_r:bdaddr_read_exec:s0
 /data/bdaddr                                                            u:object_r:bdaddr_read_data_file:s0
 
+# WiFi
+/dev/rfkill                                                      u:object_r:rfkill_device:s0
+
 # Advanced settings
 /sys/devices/virtual/mdnieset_ui/switch_mdnieset_ui/mdnieset_ui_file_cmd u:object_r:sysfs_writable:s0
 /sys/devices/virtual/misc/color_tuning/(.*)                             u:object_r:sysfs_writable:s0
