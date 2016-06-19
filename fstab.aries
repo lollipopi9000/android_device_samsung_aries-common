@@ -21,4 +21,4 @@ radio                       /radio              mtd         defaults            
 
 
 # zRAM
-/dev/block/zram0            none                swap        defaults                                            zramsize=134217728
+/dev/block/zram0            none                swap        defaults                                            zramsize=134217728,zramstreams=2
