@@ -102,6 +102,9 @@ on fs
     chown radio radio /sys/class/sec/uart_switch/UART_SEL/value
     chmod 660 /sys/class/sec/uart_switch/UART_SEL/value
     
+#   Increase read-ahead value to 256 kb
+    write /sys/block/mmcblk0/queue/read_ahead_kb 256
+
 #   MTP Device permission.
     chmod 0660 /dev/mtp_usb
     chown system mtp /dev/mtp_usb
