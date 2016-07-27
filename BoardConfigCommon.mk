@@ -52,7 +52,7 @@ TARGET_NEEDS_LONG_TIMEOUTS := true
 TARGET_EXCLUDE_LIVEWALLPAPERS := true
 
 # CMHW
-BOARD_HARDWARE_CLASS := $(DEVICE_FOLDER)/cmhw
+BOARD_HARDWARE_CLASS := device/samsung/aries-common/cmhw
 
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/aries-common/ril/
