@@ -51,6 +51,9 @@ TARGET_NEEDS_LONG_TIMEOUTS := true
 # Don't include live wallpapers, they take too much cpu and ram plus space
 TARGET_EXCLUDE_LIVEWALLPAPERS := true
 
+# CMHW
+BOARD_HARDWARE_CLASS := $(DEVICE_FOLDER)/cmhw
+
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/aries-common/ril/
 
