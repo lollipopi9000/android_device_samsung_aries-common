@@ -1,14 +1,7 @@
 import /init.aries.usb.rc
 import /init.aries.gps.rc
 
-on early-init
-
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-    write /sys/block/mmcblk0/queue/scheduler row
-
 on init
-
-    loglevel 9
 
     export LD_SHIM_LIBS /system/lib/libril.so|libsamsung_symbols.so
 
@@ -28,15 +21,6 @@ on init
     stop ril-daemon
 
 on boot
-
-    setprop ro.build.product aries
-    setprop ro.product.device aries
-
-#   Fake some battery state
-    setprop status.battery.state Slow
-    setprop status.battery.level 5
-    setprop status.battery.level_raw  50
-    setprop status.battery.level_scale 9
 
 #   KSM
     write /sys/kernel/mm/ksm/pages_to_scan 256
@@ -117,6 +101,10 @@ on fs
     chown system system /sys/kernel/bigmem/enable
     chmod 660 /sys/kernel/bigmem/enable
     restorecon /sys/kernel/bigmem/enable
+    
+    chown system system /sys/devices/virtual/misc/touchwake
+    chmod 660 /sys/devices/virtual/misc/touchwake
+    restorecon /sys/devices/virtual/misc/touchwake
 
     chown system system /sys/class/misc/pwm_duty/pwm_duty
     chmod 660 /sys/class/misc/pwm_duty/pwm_duty
@@ -130,27 +118,25 @@ on fs
     chown system system /sys/class/misc/dockaudio/deskdock_enable
     chmod 660 /sys/class/misc/dockaudio/cardock_enable
     chmod 660 /sys/class/misc/dockaudio/deskdock_enable
-    restorecon /sys/class/misc/dockaudio/cardock_enable
-    restorecon /sys/class/misc/dockaudio/deskdock_enable
 
-    chown system system /sys/devices/virtual/misc/color_tuning/blue_multiplier
-    chown system system /sys/devices/virtual/misc/color_tuning/blue_v1_offset
-    chown system system /sys/devices/virtual/misc/color_tuning/green_multiplier
-    chown system system /sys/devices/virtual/misc/color_tuning/green_v1_offset
-    chown system system /sys/devices/virtual/misc/color_tuning/red_multiplier
-    chown system system /sys/devices/virtual/misc/color_tuning/red_v1_offset
-    chmod 660 /sys/devices/virtual/misc/color_tuning/blue_multiplier
-    chmod 660 /sys/devices/virtual/misc/color_tuning/blue_v1_offset
-    chmod 660 /sys/devices/virtual/misc/color_tuning/green_multiplier
-    chmod 660 /sys/devices/virtual/misc/color_tuning/green_v1_offset
-    chmod 660 /sys/devices/virtual/misc/color_tuning/red_multiplier
-    chmod 660 /sys/devices/virtual/misc/color_tuning/red_v1_offset
-    restorecon /sys/devices/virtual/misc/color_tuning/blue_multiplier
-    restorecon /sys/devices/virtual/misc/color_tuning/blue_v1_offset
-    restorecon /sys/devices/virtual/misc/color_tuning/green_multiplier
-    restorecon /sys/devices/virtual/misc/color_tuning/green_v1_offset
-    restorecon /sys/devices/virtual/misc/color_tuning/red_multiplier
-    restorecon /sys/devices/virtual/misc/color_tuning/red_v1_offset
+    chown system system /sys/devices/virtual/misc/voodoo_color/blue_multiplier
+    chown system system /sys/devices/virtual/misc/voodoo_color/blue_v1_offset
+    chown system system /sys/devices/virtual/misc/voodoo_color/green_multiplier
+    chown system system /sys/devices/virtual/misc/voodoo_color/green_v1_offset
+    chown system system /sys/devices/virtual/misc/voodoo_color/red_multiplier
+    chown system system /sys/devices/virtual/misc/voodoo_color/red_v1_offset
+    chmod 660 /sys/devices/virtual/misc/voodoo_color/blue_multiplier
+    chmod 660 /sys/devices/virtual/misc/voodoo_color/blue_v1_offset
+    chmod 660 /sys/devices/virtual/misc/voodoo_color/green_multiplier
+    chmod 660 /sys/devices/virtual/misc/voodoo_color/green_v1_offset
+    chmod 660 /sys/devices/virtual/misc/voodoo_color/red_multiplier
+    chmod 660 /sys/devices/virtual/misc/voodoo_color/red_v1_offset
+    restorecon /sys/devices/virtual/misc/voodoo_color/blue_multiplier
+    restorecon /sys/devices/virtual/misc/voodoo_color/blue_v1_offset
+    restorecon /sys/devices/virtual/misc/voodoo_color/green_multiplier
+    restorecon /sys/devices/virtual/misc/voodoo_color/green_v1_offset
+    restorecon /sys/devices/virtual/misc/voodoo_color/red_multiplier
+    restorecon /sys/devices/virtual/misc/voodoo_color/red_v1_offset
 
 #   Intentionally left world-writable for Voodoo Sound app
     restorecon /sys/devices/virtual/misc/voodoo_sound/adc_osr128
@@ -192,6 +178,8 @@ on post-fs
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
     chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chown root system /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
 
 on charger
 
