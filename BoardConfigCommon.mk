@@ -31,9 +31,9 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a8
 TARGET_CPU_VARIANT := cortex-a8
-TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
-KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilts/gcc/$(strip $(HOST_OS))-x86/arm/arm-eabi-7.0/bin/"
+TARGET_BOARD_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
+TARGET_BOARD_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
 
 BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
@@ -44,6 +44,7 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_USES_LEGACY_MMAP := true
 TARGET_NEEDS_BIONIC_PRELINK_SUPPORT := true
 TARGET_ENABLE_NON_PIE_SUPPORT := true
+LIBART_IMG_BASE := 0x30000000
 
 # Use longer timeouts for slow CPU
 TARGET_NEEDS_LONG_TIMEOUTS := true
@@ -57,7 +58,7 @@ BOARD_HARDWARE_CLASS := device/samsung/aries-common/cmhw
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/aries-common/ril/
 
-COMMON_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
+BOARD_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
@@ -136,6 +137,7 @@ endif
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_USES_BML_OVER_MTD := true
+#BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/aries-common/shbootimg.mk
 TARGET_RECOVERY_FSTAB := device/samsung/aries-common/rootdir/fstab.aries
 RECOVERY_FSTAB_VERSION := 2
@@ -151,7 +153,7 @@ TARGET_BOOTANIMATION_USE_RGB565 := true
 BOARD_HAS_BLN := true
 
 # Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
+ EXTENDED_FONT_FOOTPRINT := true
 
 # Hardware rendering
 USE_OPENGL_RENDERER := true
