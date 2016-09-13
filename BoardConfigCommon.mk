@@ -38,7 +38,7 @@ KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-ea
 BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
 #BOARD_SEPOLICY_DIRS += \
-    device/samsung/aries-common/sepolicy
+#    device/samsung/aries-common/sepolicy
 
 # Bionic stuff
 TARGET_USERIMAGES_USE_YAFFS := true
