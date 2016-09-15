@@ -17,7 +17,7 @@
 package org.cyanogenmod.hardware;
 
 import java.io.File;
-import org.cyanogenmod.hardware.util.FileUtils;
+import org.cyanogenmod.internal.util.FileUtils;
 
 public class DisplayGammaCalibration {
     private static final String[] GAMMA_FILE_PATH = new String[] {
