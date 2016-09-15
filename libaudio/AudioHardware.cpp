@@ -39,11 +39,11 @@ extern "C" {
 #include <tinyalsa/asoundlib.h>
 }
 
-#ifdef HAVE_FM_RADIO
+/*#ifdef HAVE_FM_RADIO
 #define Si4709_IOC_MAGIC  0xFA
 #define Si4709_IOC_VOLUME_SET                       _IOW(Si4709_IOC_MAGIC, 15, __u8)
 #endif
-
+*/
 #ifdef USES_FROYO_RILCLIENT
 #define OEM_FUNC_SOUND                      0x08
 
@@ -123,12 +123,12 @@ AudioHardware::AudioHardware() :
     mRilClient(0),
     mActivatedCP(false),
     mEchoReference(NULL),
-#ifdef HAVE_FM_RADIO
+/*#ifdef HAVE_FM_RADIO
     mFmFd(-1),
     mFmVolume(1),
     mFmResumeAfterCall(false),
 #endif
-    mDriverOp(DRV_NONE)
+*/    mDriverOp(DRV_NONE)
 {
     loadRILD();
     mInit = true;
@@ -552,14 +552,14 @@ status_t AudioHardware::setMode(int mode)
         spOut->unlock();
     }
 
-#ifdef HAVE_FM_RADIO
+/*#ifdef HAVE_FM_RADIO
     if (mFmResumeAfterCall) {
         mFmResumeAfterCall = false;
 
         enableFMRadio();
     }
 #endif
-
+*/
     return status;
 }
 
@@ -608,13 +608,13 @@ status_t AudioHardware::setParameters(const String8& keyValuePairs)
     const char TTY_MODE_VALUE_VCO[] = "tty_vco";
     const char TTY_MODE_VALUE_HCO[] = "tty_hco";
     const char TTY_MODE_VALUE_FULL[] = "tty_full";
-#ifdef HAVE_FM_RADIO
+/*#ifdef HAVE_FM_RADIO
     const char FM_RADIO_KEY_ON[] = "fm_on";
     const char FM_RADIO_KEY_OFF[] = "fm_off";
     const char FM_RADIO_VALUE_ON[] = "2055";
     const char FM_RADIO_VALUE_OFF[] = "7";
 #endif
-
+*/
     key = String8(BT_NREC_KEY);
     if (param.get(key, value) == NO_ERROR) {
         if (value == BT_NREC_VALUE_ON) {
@@ -652,7 +652,7 @@ status_t AudioHardware::setParameters(const String8& keyValuePairs)
         param.remove(String8(TTY_MODE_KEY));
      }
 
-#ifdef HAVE_FM_RADIO
+/*#ifdef HAVE_FM_RADIO
     // fm radio on
     key = String8(AudioParameter::keyFmOn);
     if (param.get(key, value) == NO_ERROR) {
@@ -667,7 +667,7 @@ status_t AudioHardware::setParameters(const String8& keyValuePairs)
     }
     param.remove(key);
 #endif
-
+*/
     return NO_ERROR;
 }
 
@@ -770,7 +770,7 @@ status_t AudioHardware::setMasterVolume(float volume)
     return -1;
 }
 
-#ifdef HAVE_FM_RADIO
+/*#ifdef HAVE_FM_RADIO
 status_t AudioHardware::setFmVolume(float v)
 {
     mFmVolume = v;
@@ -785,7 +785,7 @@ status_t AudioHardware::setFmVolume(float v)
     return NO_ERROR;
 }
 #endif
-
+*/
 static const int kDumpLockRetries = 50;
 static const int kDumpLockSleep = 20000;
 
@@ -927,7 +927,7 @@ status_t AudioHardware::setIncallPath_l(uint32_t device)
     return NO_ERROR;
 }
 
-#ifdef HAVE_FM_RADIO
+/*#ifdef HAVE_FM_RADIO
 void AudioHardware::enableFMRadio() {
     ALOGV("AudioHardware::enableFMRadio() Turning FM Radio ON");
 
@@ -988,11 +988,11 @@ status_t AudioHardware::setFMRadioPath_l(uint32_t device)
     const char *fmpath;
 
     if (device != AudioSystem::DEVICE_OUT_SPEAKER && (device & AudioSystem::DEVICE_OUT_SPEAKER) != 0) {
-        /* Fix the case where we're on headset and the system has just played a 
+/*        /* Fix the case where we're on headset and the system has just played a 
          * notification sound to both the speaker and the headset. The device
          * now is an ORed value and we need to get back its original value.
          */
-         device -= AudioSystem::DEVICE_OUT_SPEAKER;
+/*         device -= AudioSystem::DEVICE_OUT_SPEAKER;
          ALOGD("setFMRadioPath_l() device removed speaker %x", device);
     }
 
@@ -1055,7 +1055,7 @@ status_t AudioHardware::setFMRadioPath_l(uint32_t device)
     return NO_ERROR;
 }
 #endif
-
+*/
 struct pcm *AudioHardware::openPcmOut_l()
 {
     ALOGD("openPcmOut_l() mPcmOpenCnt: %d", mPcmOpenCnt);
@@ -1224,13 +1224,13 @@ const char *AudioHardware::getInputRouteFromDevice(uint32_t device)
         return "Hands Free Mic";
     case AudioSystem::DEVICE_IN_BLUETOOTH_SCO_HEADSET:
         return "BT Sco Mic";
-#ifdef HAVE_FM_RADIO
+/*#ifdef HAVE_FM_RADIO
     case AudioSystem::DEVICE_IN_FM_RX:
         return "FM Radio";
     case AudioSystem::DEVICE_IN_FM_RX_A2DP:
         return "FM Radio A2DP";
 #endif
-    default:
+*/    default:
         return "MIC OFF";
     }
 }
