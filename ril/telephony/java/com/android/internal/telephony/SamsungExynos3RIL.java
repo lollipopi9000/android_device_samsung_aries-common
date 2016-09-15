@@ -561,7 +561,7 @@ public class SamsungExynos3RIL extends RIL implements CommandsInterface {
             }
             break;
 
-/*        case RIL_UNSOL_STK_PROACTIVE_COMMAND:
+        case RIL_UNSOL_STK_PROACTIVE_COMMAND:
             if (RILJ_LOGD) unsljLogRet(response, ret);
 
             if (mCatProCmdRegistrant != null) {
@@ -610,7 +610,7 @@ public class SamsungExynos3RIL extends RIL implements CommandsInterface {
                                          new AsyncResult (null, ret, null));
             }
             break;
-*/
+
         // Samsung STK
         case RIL_UNSOL_STK_SEND_SMS_RESULT:
             if (Resources.getSystem().
