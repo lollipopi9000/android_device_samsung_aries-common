@@ -482,7 +482,7 @@ public class SamsungExynos3RIL extends RIL implements CommandsInterface {
         case RIL_UNSOL_SAMSUNG_UNKNOWN_MAGIC_REQUEST: ret = responseVoid(p); break;
         case RIL_UNSOL_SAMSUNG_UNKNOWN_MAGIC_REQUEST_2: ret = responseVoid(p); break;
         case RIL_UNSOL_AM: ret = responseString(p); break;
-        case RIL_UNSOL_STK_SEND_SMS_RESULT: ret = responseInts(p); break; // Samsung STK
+//        case RIL_UNSOL_STK_SEND_SMS_RESULT: ret = responseInts(p); break; // Samsung STK
         case RIL_UNSOL_HARDWARE_CONFIG_CHANGED: ret = responseHardwareConfig(p); break;
         case RIL_UNSOL_RADIO_CAPABILITY:
                 ret = responseRadioCapability(p); break;
@@ -540,7 +540,7 @@ public class SamsungExynos3RIL extends RIL implements CommandsInterface {
             result[0] = nitz;
             result[1] = Long.valueOf(nitzReceiveTime);
 
-            if (mNITZTimeRegistrant != null) {
+/*            if (mNITZTimeRegistrant != null) {
 
                 mNITZTimeRegistrant
                 .notifyRegistrant(new AsyncResult (null, result, null));
@@ -550,7 +550,7 @@ public class SamsungExynos3RIL extends RIL implements CommandsInterface {
             }
             break;
 
-        case RIL_UNSOL_SIGNAL_STRENGTH:
+  */      case RIL_UNSOL_SIGNAL_STRENGTH:
             // Note this is set to "verbose" because it happens
             // frequently
             if (RILJ_LOGV) unsljLogvRet(response, ret);
@@ -611,7 +611,7 @@ public class SamsungExynos3RIL extends RIL implements CommandsInterface {
             }
             break;
 
-        // Samsung STK
+/*        // Samsung STK
         case RIL_UNSOL_STK_SEND_SMS_RESULT:
             if (Resources.getSystem().
                     getBoolean(com.android.internal.R.bool.config_samsung_stk)) {
@@ -631,10 +631,10 @@ public class SamsungExynos3RIL extends RIL implements CommandsInterface {
                         new AsyncResult(null, ret, null));
              }
              break;
-        }
+*/        }
     }
 
-    @Override
+  @Override
     protected Object
     responseCallList(Parcel p) {
         int num;
@@ -739,7 +739,7 @@ public class SamsungExynos3RIL extends RIL implements CommandsInterface {
         return response;
     }
 
-    protected Object
+/*    protected Object
     responseLastCallFailCause(Parcel p) {
         int response[] = (int[])responseInts(p);
 
@@ -754,7 +754,7 @@ public class SamsungExynos3RIL extends RIL implements CommandsInterface {
         return response;
     }
 
-    @Override
+  */  @Override
     protected Object
     responseSignalStrength(Parcel p) {
         // When SIM is PIN-unlocked, the RIL responds with APPSTATE_UNKNOWN and
