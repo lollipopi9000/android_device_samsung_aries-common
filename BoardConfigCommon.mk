@@ -141,7 +141,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_USES_BML_OVER_MTD := true
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/aries-common/shbootimg.mk
-BOARD_CUSTOM_MKBOOTIMG := mksgsbootimg
+BOARD_CUSTOM_MKBOOTIMG := device/samsung/aries-common/mksgsbootimg/Android.mk
 TARGET_RECOVERY_FSTAB := device/samsung/aries-common/rootdir/fstab.aries
 RECOVERY_FSTAB_VERSION := 2
 
